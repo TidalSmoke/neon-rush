@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>霓虹奔流 · Neon Rush</title>
+<link rel="stylesheet" href="style.css">
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js"
+  }
+}
+</script>
+</head>
+<body>
+<div id="game-container"></div>
+
+<!-- HUD -->
+<div id="hud" class="hidden">
+  <div id="score-box">
+    <div id="score">0</div>
+    <div id="distance">0 m</div>
+  </div>
+  <div id="crystal-box">
+    <span id="crystal-icon">◆</span>
+    <span id="crystals">0</span>
+  </div>
+  <div id="speed-box">x1.0</div>
+  <div id="combo" class="hidden">连击 <span id="combo-count">0</span> <b id="combo-mult">x1.0</b></div>
+  <button id="mute-btn" class="mute-btn" title="静音 (M)">🔊</button>
+  <div id="hint">P / Esc 暂停</div>
+</div>
+
+<!-- 开始界面 -->
+<div id="menu" class="overlay">
+  <h1 class="title">霓虹<span>奔流</span></h1>
+  <p class="subtitle">NEON RUSH</p>
+  <div class="controls-help">
+    <div class="ctrl-row"><span class="key">←</span><span class="key">→</span><span class="ctrl-desc">切换车道</span></div>
+    <div class="ctrl-row"><span class="key">↑</span><span class="key wide">空格</span><span class="ctrl-desc">跳跃</span></div>
+    <div class="ctrl-row"><span class="key">↓</span><span class="ctrl-desc">快速下坠</span></div>
+    <div class="ctrl-row"><span class="ctrl-desc touch-only">触屏：左右滑动换道，上滑跳跃</span></div>
+  </div>
+  <p class="best-line">最高分 <span id="menu-best">0</span></p>
+  <button id="start-btn" class="btn">开始奔跑</button>
+</div>
+
+<!-- 结束界面 -->
+<div id="gameover" class="overlay hidden">
+  <h2>坠落了…</h2>
+  <div class="result-grid">
+    <div class="result-item"><span class="result-label">分数</span><span id="final-score" class="result-value">0</span></div>
+    <div class="result-item"><span class="result-label">距离</span><span id="final-distance" class="result-value">0 m</span></div>
+    <div class="result-item"><span class="result-label">水晶</span><span id="final-crystals" class="result-value">0</span></div>
+    <div class="result-item"><span class="result-label">最高连击</span><span id="final-combo" class="result-value">0</span></div>
+    <div class="result-item"><span class="result-label">最高分</span><span id="final-best" class="result-value">0</span></div>
+  </div>
+  <p id="new-record" class="new-record hidden">★ 新纪录 ★</p>
+  <button id="retry-btn" class="btn">再来一次</button>
+  <button id="menu-btn" class="btn ghost">返回主页</button>
+</div>
+
+<!-- 暂停界面 -->
+<div id="pause" class="overlay hidden">
+  <h2>已暂停</h2>
+  <button id="resume-btn" class="btn">继续</button>
+  <button id="quit-btn" class="btn ghost">放弃本局</button>
+</div>
+
+<script type="module" src="src/main.js"></script>
+</body>
+</html>
